@@ -1,14 +1,17 @@
 package com.oscarboking.zombiefortress
 
+import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import java.util.Random
 import android.graphics.Color
+import android.os.Parcelable
+import java.io.Serializable
 
 /**
  * Created by boking on 2017-06-10.
  */
-class WorldGenerator(val size: Int, val context: AppCompatActivity) {
+class WorldGenerator(val size: Int, val context: Activity) : Serializable{
 
     var worldMap: Array<IntArray>? = null
     var newWorldMap: Array<IntArray>? = null
