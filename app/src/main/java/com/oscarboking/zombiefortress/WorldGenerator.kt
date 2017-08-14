@@ -25,7 +25,7 @@ class WorldGenerator(val size: Int, val context: Activity) : Serializable{
     fun init(){
         worldMap = Array(size) { IntArray(size) }
         newWorldMap = Array(size) {IntArray(size)}
-        mapTiles = array2d<Tile>(size,size){Tile("water",(100) * r.nextDouble())}
+        mapTiles = array2d<Tile>(size,size){Tile("blank",(100) * r.nextDouble())}
     }
 
     public inline fun <reified INNER> array2d(sizeOuter: Int, sizeInner: Int, noinline innerInit: (Int)->INNER): Array<Array<INNER>>
@@ -57,7 +57,7 @@ class WorldGenerator(val size: Int, val context: Activity) : Serializable{
                             println("last iteration")
                         }
                         newWorldMap!![cell][row] = 1
-                        mapTiles!![row][cell].type="forest"
+                        mapTiles!![row][cell].type="land"
 
                     } else {
                         newWorldMap!![cell][row] = 0;
@@ -73,38 +73,60 @@ class WorldGenerator(val size: Int, val context: Activity) : Serializable{
     }
 
     fun randomizeBiomes(){
-        for (row in 0..size - 1) {
-            for (cell in 0..size - 1) {
-                if(mapTiles!![cell][row]!=null&& worldMap!![cell][row]!=0) {
-                    /*var rand = Random().nextInt(4)
-                    if (rand == 0) {//forest
-                        mapTiles!![cell][row].type = "forest"
-                    } else if (rand == 1) { //plains
-                        mapTiles!![cell][row].type = "plains"
-                    } else if (rand == 2) { //snow
-                        mapTiles!![cell][row].type = "snow"
-                    } else if (rand == 3) { //desert
-                        mapTiles!![cell][row].type = "desert"
-                    }*/
-                }
+        var z : Int = 0
+        var x : Int = 0
+        var y : Int = 0
+        while (z<=20){
+
+            var nextBiome : Int = Random().nextInt(4)//0=forest, 1=plains, 2=snow, 3=desert, 4=water
+            x = Random().nextInt(size)
+            y = Random().nextInt(size)
+            while((isLand(x,y))==0){
+                x = Random().nextInt(size)
+                y = Random().nextInt(size)
             }
+            if(nextBiome==0){//forest
+                mapTiles!![x][y].type="forest"
+            }else if (nextBiome==1){
+                mapTiles!![x][y].type="plains"
+            }else if (nextBiome==2){
+                mapTiles!![x][y].type="snow"
+            }else if (nextBiome==3){
+                mapTiles!![x][y].type="desert"
+            }else if (nextBiome==4){
+                mapTiles!![x][y].type="water"
+            }
+
+            z++
         }
-        /* TODO: even the biomes out
-        for (row in 0..size - 1) {
-            for (cell in 0..size - 1) {
-                var nbrOfSameTypeNeighbours: Int = 0
 
-                if(mapTiles!![cell][row]!=null) {
-                    if (isSameType(cell,row,cell-1,row-1)){
+        //now spread biomes
+        //ta en snapshot av hur mapen ser ut, gp inom O(n) och vid de som har en typ förutom land, sätt de runtom till samma typ
+        /*var mapTilesSnapshot: Array<Array<Tile>>? = mapTiles
 
-
-                        newWorldMap!![cell][row] = 1;
-
+        while(stillBlankTiles()){
+            for (row in 0..size - 1) {
+                for (cell in 0..size - 1) {
+                    if(!(mapTilesSnapshot!![row][cell].type.equals("land"))&&!(mapTilesSnapshot!![row][cell].type.equals("water"))){
+                        mapTiles!![row+1][cell].type=mapTilesSnapshot!![row][cell].type
+                        mapTiles!![row-1][cell].type=mapTilesSnapshot!![row][cell].type
+                        mapTiles!![row][cell-1].type=mapTilesSnapshot!![row][cell].type
+                        mapTiles!![row][cell+1].type=mapTilesSnapshot!![row][cell].type
                     }
                 }
             }
+        }*/
+    }
+
+    fun stillBlankTiles(): Boolean{
+        for (row in 0..size - 1) {
+            for (cell in 0..size - 1) {
+                if(mapTiles!![row][cell].type.equals("land")){
+                    return true
+                }
+            }
         }
-        */
+        return false
     }
 
     fun isSameType(x1: Int, y1: Int, x2: Int, y2: Int): Boolean{

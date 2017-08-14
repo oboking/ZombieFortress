@@ -36,7 +36,6 @@ class MapView @JvmOverloads constructor(
             for (i in 0..mapSize - 1) {
                 for (j in 0..mapSize - 1) {
                     if(mapTiles!![i][j]!=null) {
-                        /* if painting biomes
                         if (mapTiles!![i][j].type.equals("forest")) {
                             paint.setColor(Color.rgb(0, 102, 0))
                         } else if (mapTiles!![i][j].type.equals("plains")) {
@@ -47,12 +46,14 @@ class MapView @JvmOverloads constructor(
                             paint.setColor(Color.rgb(255, 255, 204))
                         } else if (mapTiles!![i][j].type.equals("water")) {
                             paint.setColor(Color.rgb(0, 0, 255))
-                        }*/
-                        if(worldMap!![i][j]==1){
+                        }else if (mapTiles!![i][j].type.equals("land")) {
+                            paint.setColor(Color.rgb(100, 100, 100))
+                        }
+                        /*if(worldMap!![i][j]==1){
                         paint.setColor(Color.rgb(0, 102, 0))
-                    }else {
-                        paint.setColor(Color.rgb(0, 0, 255))
-                    }
+                        }else {
+                            paint.setColor(Color.rgb(0, 0, 255))
+                        }*/
                         if(j==selectedX&&i==selectedY){
                             paint.setStyle(Paint.Style.STROKE);
                             c.drawRect((j * rectSize).toFloat(), (i * rectSize).toFloat(), ((j * rectSize) + rectSize).toFloat(), ((i * rectSize) + rectSize).toFloat(), paint)

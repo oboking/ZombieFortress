@@ -86,6 +86,24 @@
         <com.oscarboking.zombiefortress.MapView
             android:id="@+id/mapView"
             android:layout_height="100dp"
-            android:layout_width="100dp"></com.oscarboking.zombiefortress.MapView>
+            android:layout_width="100dp"
+            android:background="@android:color/holo_blue_dark"></com.oscarboking.zombiefortress.MapView>
+
+        <TextView
+            android:text="12:00"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textClock"
+            android:layout_gravity="center_horizontal"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:text="13/8-17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textDate"
+            android:textColor="@android:color/black"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 </LinearLayout>
