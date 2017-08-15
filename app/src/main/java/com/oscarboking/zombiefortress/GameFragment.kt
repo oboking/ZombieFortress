@@ -6,15 +6,12 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.TextView
 import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 import android.R.attr.tag
 import android.app.FragmentManager
-import android.widget.FrameLayout
+import android.widget.*
 import com.oscarboking.zombiefortress.FragmentOverview.CallBack
 
 
@@ -45,31 +42,82 @@ class GameFragment : Fragment() {
     var stringDateOutputYear: String = ""
     private lateinit var textClock: TextView
     private lateinit var textDate: TextView
+
     private lateinit var viewOverview : View
+    private lateinit var viewColonists : View
+    private lateinit var viewStorage : View
+    private lateinit var viewResearch : View
+    private lateinit var viewUpgrades : View
+    private lateinit var viewAdmin : View
+    private lateinit var viewSettings : View
+
     private lateinit var fragmentFrame : FrameLayout
+    private lateinit var btnTabMenuOverview : ImageButton
+    private lateinit var btnTabMenuColonists : ImageButton
+    private lateinit var btnTabMenuAdmin : ImageButton
+    private lateinit var btnTabMenuStorage : ImageButton
+    private lateinit var btnTabMenuResearch : ImageButton
+    private lateinit var btnTabMenuUpgrades : ImageButton
+    private lateinit var btnTabMenuSettings : ImageButton
 
     private lateinit var listNewsView: ListView
-    var newsList: MutableList<String> = mutableListOf<String>()
+    private lateinit var listViewColonists: ListView
+    private lateinit var listViewStorage : ListView
+
+    private var colonistList : List<Colonist> = listOf(Colonist())
+
+    private var newsList: MutableList<String> = mutableListOf<String>()
+    private lateinit var inventory : Inventory
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         super.onCreate(savedInstanceState)
-        var generator : WorldGenerator = WorldGenerator(20,activity)
+
+        val args = arguments
+
+        var generator : WorldGenerator = WorldGenerator(args.getInt("worldSize"),activity)
         val root = inflater.inflate(R.layout.fragment_game, container, false)
 
-        newsList= mutableListOf("ayy","lmao")
-
+        newsList= mutableListOf()
 
         //UI
         fragmentFrame = root.findViewById(R.id.fragmentFrame) as FrameLayout
         fragmentFrame.isFocusable=true
+
         viewOverview = inflater.inflate(R.layout.view_overview, null) as View
-        fragmentFrame.addView(viewOverview)
+        viewColonists = inflater.inflate(R.layout.view_colonists, null) as View
+        viewStorage = inflater.inflate(R.layout.view_storage, null) as View
+        viewAdmin = inflater.inflate(R.layout.view_admin, null) as View
+        viewResearch = inflater.inflate(R.layout.view_research, null) as View
+        viewUpgrades = inflater.inflate(R.layout.view_upgrades, null) as View
+        viewSettings = inflater.inflate(R.layout.view_settings, null) as View
+
         listNewsView = viewOverview.findViewById(R.id.listNews) as ListView
+        listNewsView.adapter=ArrayAdapter(activity,R.layout.news_list_item,newsList)
+        newsList.add(0,"You have started a colony...")
+        fragmentFrame.addView(viewOverview)
+        inventory= Inventory(this,args.getString("difficulty"))
+
+
+        listViewColonists = viewColonists.findViewById(R.id.listViewColonists) as ListView
+        listViewStorage = viewStorage.findViewById(R.id.listViewStorage) as ListView
+
+        var colonistListAdapter : ColonistListAdapter = ColonistListAdapter(activity,R.layout.colonist_list_item,colonistList)
+        listViewColonists.adapter=colonistListAdapter
+        var storageListAdapter : StorageListAdapter = StorageListAdapter(activity,R.layout.list_item_storage,inventory.getInventory())
+        listViewStorage.adapter=storageListAdapter
+
         val mapView = root.findViewById(R.id.mapView) as MapView
         textClock = root.findViewById(R.id.textClock) as TextView
         textDate = root.findViewById(R.id.textDate) as TextView
+        btnTabMenuOverview = root.findViewById(R.id.btnTabMenuOverview) as ImageButton
+        btnTabMenuColonists = root.findViewById(R.id.btnTabMenuColonists) as ImageButton
+        btnTabMenuStorage = root.findViewById(R.id.btnTabMenuStorage) as ImageButton
+        btnTabMenuAdmin = root.findViewById(R.id.btnTabMenuAdmin) as ImageButton
+        btnTabMenuResearch = root.findViewById(R.id.btnTabMenuResearch) as ImageButton
+        btnTabMenuUpgrades = root.findViewById(R.id.btnTabMenuUpgrades) as ImageButton
+        btnTabMenuSettings = root.findViewById(R.id.btnTabMenuSettings) as ImageButton
 
 
         //Generate the world
@@ -79,15 +127,12 @@ class GameFragment : Fragment() {
         generator.randomizeBiomes()
 
         mapView.mapTiles=generator.mapTiles
-        mapView.updateMapSize(20)
+        mapView.updateMapSize(args.getInt("worldSize"))
         mapView.worldMap=generator.worldMap
         mapView.invalidate()
 
-        //TRY WITH OVERVIEW View
 
-        listNewsView.adapter=ArrayAdapter(activity,R.layout.news_list_item,newsList)
 
-        newsList.add(0,"You have started a colony...")
         (listNewsView.adapter as ArrayAdapter<String>).notifyDataSetChanged()
         listNewsView.smoothScrollToPosition(0)
 
@@ -98,11 +143,44 @@ class GameFragment : Fragment() {
                 val fragment = FragmentMap()
                 val bundle = Bundle()
                 bundle.putSerializable("generator", generator)
+                bundle.putInt("worldSize",args.getInt("worldSize"))
                 fragment.arguments = bundle
                 fragmentManager.beginTransaction().replace(R.id.fragmentFrame, fragment as Fragment, "MAP_FRAGMENT").commit()
                 return true
             }
         })
+
+        btnTabMenuColonists.setOnClickListener {
+            fragmentFrame.removeAllViews()
+            fragmentFrame.addView(viewColonists)
+        }
+        btnTabMenuOverview.setOnClickListener {
+            fragmentFrame.removeAllViews()
+            fragmentFrame.addView(viewOverview)
+        }
+        btnTabMenuStorage.setOnClickListener {
+            fragmentFrame.removeAllViews()
+            fragmentFrame.addView(viewStorage)
+        }
+        btnTabMenuUpgrades.setOnClickListener {
+            fragmentFrame.removeAllViews()
+            fragmentFrame.addView(viewUpgrades)
+        }
+        btnTabMenuResearch.setOnClickListener {
+            fragmentFrame.removeAllViews()
+            fragmentFrame.addView(viewResearch)
+        }
+        btnTabMenuAdmin.setOnClickListener {
+            fragmentFrame.removeAllViews()
+            fragmentFrame.addView(viewAdmin)
+        }
+        btnTabMenuSettings.setOnClickListener {
+            fragmentFrame.removeAllViews()
+            fragmentFrame.addView(viewSettings)
+        }
+
+
+        updateResourceTexts(root)
 
         //Start world tick
         val t = Timer()
@@ -128,6 +206,14 @@ class GameFragment : Fragment() {
 
         tick()
         return root
+    }
+    fun updateResourceTexts(rootview: View){
+        (rootview.findViewById(R.id.woodAmountText) as TextView).text=(inventory.getAmountOfItem("Wood")).toString()
+        (rootview.findViewById(R.id.greensAmountText) as TextView).text=(inventory.getAmountOfItem("Greens")).toString()
+        (rootview.findViewById(R.id.meatAmountText) as TextView).text=(inventory.getAmountOfItem("Meat")).toString()
+        (rootview.findViewById(R.id.metalAmountText) as TextView).text=(inventory.getAmountOfItem("Metal")).toString()
+        (rootview.findViewById(R.id.medpackAmountText) as TextView).text=(inventory.getAmountOfItem("Medpack")).toString()
+
     }
 
     fun postNews(news : String){
@@ -164,17 +250,11 @@ class GameFragment : Fragment() {
         }
         if(Math.log10(currentMinutes.toDouble()).toInt() + 1==1) {
             stringClockoutputMinutes = "0" + currentMinutes.toString()
-            if(stringClockoutputMinutes.equals("0 ")){
-                stringClockoutputMinutes="00"
-            }
         }else{
             stringClockoutputMinutes = currentMinutes.toString()
         }
         if(Math.log10(currentHour.toDouble()).toInt() + 1==1) {
             stringClockOutputHours = "0" + currentHour.toString()
-            if(stringClockOutputHours.equals("0 ")){
-                stringClockOutputHours="00"
-            }
         }else{
             stringClockOutputHours = currentHour.toString()
         }
@@ -189,6 +269,12 @@ class GameFragment : Fragment() {
             stringDateOutputMonth = currentMonth.toString()
         }
 
+        if(stringClockoutputMinutes.equals("0")){
+            stringClockoutputMinutes="00"
+        }
+        if(stringClockOutputHours.equals("0")){
+            stringClockOutputHours="00"
+        }
         activity.runOnUiThread({
             textDate.text= stringDateOutputYear + "-" +stringDateOutputMonth+ "-" + stringDateOutputDay
             textClock.text= stringClockOutputHours+ ":" +stringClockoutputMinutes

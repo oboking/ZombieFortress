@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="Available colonists: 0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/availableColonistsText"
+            android:textColor="@android:color/background_light"
+            android:textSize="15sp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Farmers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView22"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light"
+                android:layout_marginBottom="5dp" />
+
+            <ImageView
+                android:src="@drawable/corn"
+                android:id="@+id/imageView8"
+                android:layout_gravity="center_horizontal"
+                android:background="#0000"
+                android:layout_height="50dp"
+                android:layout_width="50dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="5dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/arrow_down_float"
+                    android:id="@+id/imageButton"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="#0000" />
+
+                <TextView
+                    android:text="10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currentFarmersText"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_vertical|center_horizontal" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/arrow_up_float"
+                    android:id="@+id/imageButton2"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="#0000" />
+
+            </LinearLayout>
+
+            <TextView
+                android:text="Greens per day: 0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView16"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginStart="20dp">
+
+            <TextView
+                android:text="Hunters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView17"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light"
+                android:layout_marginBottom="5dp" />
+
+            <ImageView
+                android:src="@drawable/hunting"
+                android:id="@+id/imageView9"
+                android:layout_gravity="center_horizontal"
+                android:background="#0000"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="5dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/arrow_down_float"
+                    android:id="@+id/imageButton"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="#0000" />
+
+                <TextView
+                    android:text="10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currentHuntersText"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_vertical|center_horizontal" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/arrow_up_float"
+                    android:id="@+id/imageButton2"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="#0000" />
+
+            </LinearLayout>
+
+            <TextView
+                android:text="Meat per day: 0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/meatPerDayText"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginEnd="20dp">
+
+            <TextView
+                android:text="Woodchoppers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView17"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light"
+                android:layout_marginBottom="5dp" />
+
+            <ImageView
+                android:src="@drawable/woodcutting"
+                android:id="@+id/imageView10"
+                android:layout_gravity="center_horizontal"
+                android:background="#0000"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="5dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/arrow_down_float"
+                    android:id="@+id/imageButton"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="#0000" />
+
+                <TextView
+                    android:text="10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currentWoodcuttersText"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_vertical|center_horizontal" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/arrow_up_float"
+                    android:id="@+id/imageButton2"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="#0000" />
+
+            </LinearLayout>
+
+            <TextView
+                android:text="Wood per day: 0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView16"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Guards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView19"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light"
+                android:layout_marginBottom="5dp" />
+
+            <ImageView
+                android:src="@drawable/guard"
+                android:id="@+id/imageView12"
+                android:layout_gravity="center_horizontal"
+                android:background="#0000"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="5dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/arrow_down_float"
+                    android:id="@+id/imageButton"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="#0000" />
+
+                <TextView
+                    android:text="10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currentGuardsText"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_vertical|center_horizontal" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/arrow_up_float"
+                    android:id="@+id/imageButton2"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="#0000" />
+
+            </LinearLayout>
+
+            <TextView
+                android:text="Extra defence: 0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView20"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Guards"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView19"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light"
+                android:layout_marginBottom="5dp" />
+
+            <ImageView
+                android:src="@drawable/guard"
+                android:id="@+id/imageView6"
+                android:layout_gravity="center_horizontal"
+                android:background="#0000"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="5dp">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/arrow_down_float"
+                    android:id="@+id/imageButton"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="#0000" />
+
+                <TextView
+                    android:text="10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currentGuardsText"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/background_light"
+                    android:textSize="16sp"
+                    android:layout_gravity="center_vertical|center_horizontal" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@android:drawable/arrow_up_float"
+                    android:id="@+id/imageButton2"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:background="#0000" />
+
+            </LinearLayout>
+
+            <TextView
+                android:text="Extra defence: 0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView20"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

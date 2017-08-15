@@ -20,7 +20,7 @@ class FragmentMap : Fragment() {
         val generator : WorldGenerator = bundle.getSerializable("generator") as WorldGenerator
 
         mapView.mapTiles=generator.mapTiles
-        mapView.updateMapSize(20)
+        mapView.updateMapSize(bundle.getInt("worldSize"))
         mapView.worldMap=generator.worldMap
         mapView.invalidate()
 

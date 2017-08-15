@@ -31,49 +31,197 @@
             android:gravity="bottom"
             android:layout_weight="1">
 
-            <ImageButton
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher_round"
-                android:id="@+id/imageButton4"
-                android:layout_weight="1"/>
+                android:layout_weight="1">
 
-            <ImageButton
+                <ImageButton
+                    android:src="@drawable/eye"
+                    android:id="@+id/btnTabMenuOverview"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#0000"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="4dp" />
+
+                <TextView
+                    android:text="Overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView8"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@android:color/background_light" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher"
-                android:id="@+id/imageButton8"
-                android:layout_weight="1"/>
+                android:layout_weight="1">
 
-            <ImageButton
+                <ImageButton
+                    android:src="@drawable/sheriff_badge"
+                    android:id="@+id/btnTabMenuAdmin"
+                    android:layout_weight="1"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center_horizontal"
+                    android:background="#0000"
+                    android:padding="4dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
+                <TextView
+                    android:text="Admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView9"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/background_light"
+                    android:layout_gravity="center_horizontal"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher"
-                android:id="@+id/imageButton3"
-                android:layout_weight="1"/>
+                android:layout_weight="1">
 
             <ImageButton
+                android:src="@drawable/colonists"
+                android:id="@+id/btnTabMenuColonists"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_horizontal"
+                android:background="#0000"
+                android:padding="4dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+            <TextView
+                android:text="Colonists"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher"
-                android:id="@+id/imageButton7"
-                android:layout_weight="1"/>
+                android:id="@+id/textView10"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
             <ImageButton
+                android:src="@drawable/storage"
+                android:id="@+id/btnTabMenuStorage"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_horizontal"
+                android:background="#0000"
+                android:padding="4dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+            <TextView
+                android:text="Storage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher"
-                android:id="@+id/imageButton6"
-                android:layout_weight="1"/>
+                android:id="@+id/textView11"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
 
             <ImageButton
+                android:src="@drawable/research"
+                android:id="@+id/btnTabMenuResearch"
+                android:layout_weight="1"
+                android:scaleType="fitCenter"
+                android:layout_gravity="center_horizontal"
+                android:background="#0000"
+                android:padding="4dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+            <TextView
+                android:text="Research"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher"
-                android:id="@+id/imageButton2"
-                android:layout_weight="1"/>
+                android:id="@+id/textView12"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+            <ImageButton
+                android:layout_width="40dp"
+                android:src="@drawable/arrow_up"
+                android:id="@+id/btnTabMenuUpgrades"
+                android:layout_weight="1"
+                android:scaleType="fitXY"
+                android:layout_gravity="center_horizontal"
+                android:background="#0000"
+                android:padding="4dp"
+                android:layout_height="40dp" />
+            <TextView
+                android:text="Upgrades"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView13"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+            <ImageButton
+                android:src="@android:drawable/ic_menu_preferences"
+                android:id="@+id/btnTabMenuSettings"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:background="#0000"
+                android:padding="4dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+
+            <TextView
+                android:text="Settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView14"
+                android:layout_weight="1"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@android:color/background_light" />
+
+            </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -105,5 +253,136 @@
             android:id="@+id/textDate"
             android:textColor="@android:color/black"
             android:layout_gravity="center_horizontal" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@drawable/wood"
+                        android:id="@+id/imageView4"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="#0000"/>
+
+                    <TextView
+                        android:text="1000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/woodAmountText"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/meat"
+                        android:id="@+id/imageView5"
+                        android:background="#0000"/>
+
+                    <TextView
+                        android:text="1000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/meatAmountText"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/scrap_metal"
+                        android:id="@+id/imageView1"
+                        android:background="#0000"/>
+
+                    <TextView
+                        android:text="1000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/metalAmountText"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:src="@drawable/corn"
+                        android:id="@+id/imageView3"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:background="#0000"/>
+
+                    <TextView
+                        android:text="1000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/greensAmountText"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/medpack"
+                        android:id="@+id/imageView"
+                        android:background="#0000"/>
+
+                    <TextView
+                        android:text="1000"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/medpackAmountText"
+                        android:textColor="@android:color/black"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>
