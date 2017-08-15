@@ -13,8 +13,7 @@ import android.R.attr.tag
 import android.app.FragmentManager
 import android.widget.*
 import com.oscarboking.zombiefortress.FragmentOverview.CallBack
-
-
+import org.w3c.dom.Text
 
 
 /**
@@ -60,14 +59,41 @@ class GameFragment : Fragment() {
     private lateinit var btnTabMenuUpgrades : ImageButton
     private lateinit var btnTabMenuSettings : ImageButton
 
+    private lateinit var btnDecreaseFarmers : ImageButton
+    private lateinit var btnIncreaseFarmers : ImageButton
+    private lateinit var btnDecreaseHunters : ImageButton
+    private lateinit var btnIncreaseHunters : ImageButton
+    private lateinit var btnDecreaseWoodCutters : ImageButton
+    private lateinit var btnIncreaseWoodCutters : ImageButton
+    private lateinit var btnDecreaseGuards : ImageButton
+    private lateinit var btnIncreaseGuards : ImageButton
+    private lateinit var textCurrentFarmers : TextView
+    private lateinit var textCurrentHunters : TextView
+    private lateinit var textCurrentWoodCutters : TextView
+    private lateinit var textCurrentGuards : TextView
+    private lateinit var textAvailableWorkers : TextView
+    private lateinit var textGreensPerDay : TextView
+    private lateinit var textMeatPerDay : TextView
+    private lateinit var textWoodPerDay : TextView
+
     private lateinit var listNewsView: ListView
     private lateinit var listViewColonists: ListView
     private lateinit var listViewStorage : ListView
 
-    private var colonistList : List<Colonist> = listOf(Colonist())
+    private var colonistList : MutableList<Colonist> = mutableListOf()
 
     private var newsList: MutableList<String> = mutableListOf<String>()
     private lateinit var inventory : Inventory
+
+    private var availableWorkers : Int = 0
+    private var currentFarmers : Int = 0
+    private var currentHunters : Int = 0
+    private var currentWoodCutters : Int = 0
+    private var currentGuards : Int = 0
+    private var greensPerDay : Int = 0
+    private var meatPerDay : Int = 0
+    private var woodPerDay : Int = 0
+    private lateinit var gameView : View
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -78,7 +104,7 @@ class GameFragment : Fragment() {
 
         var generator : WorldGenerator = WorldGenerator(args.getInt("worldSize"),activity)
         val root = inflater.inflate(R.layout.fragment_game, container, false)
-
+        gameView=root
         newsList= mutableListOf()
 
         //UI
@@ -119,6 +145,99 @@ class GameFragment : Fragment() {
         btnTabMenuUpgrades = root.findViewById(R.id.btnTabMenuUpgrades) as ImageButton
         btnTabMenuSettings = root.findViewById(R.id.btnTabMenuSettings) as ImageButton
 
+        btnDecreaseFarmers = viewAdmin.findViewById(R.id.btnDecreaseFarmers) as ImageButton
+        btnIncreaseFarmers = viewAdmin.findViewById(R.id.btnIncreaseFarmers) as ImageButton
+        btnDecreaseHunters = viewAdmin.findViewById(R.id.btnDecreaseHunters) as ImageButton
+        btnIncreaseHunters = viewAdmin.findViewById(R.id.btnIncreaseHunters) as ImageButton
+        btnDecreaseWoodCutters = viewAdmin.findViewById(R.id.btnDecreaseWoodCutters) as ImageButton
+        btnIncreaseWoodCutters = viewAdmin.findViewById(R.id.btnIncreaseWoodCutters) as ImageButton
+        btnDecreaseGuards = viewAdmin.findViewById(R.id.btnDecreaseGuards) as ImageButton
+        btnIncreaseGuards = viewAdmin.findViewById(R.id.btnIncreaseGuards) as ImageButton
+        textCurrentFarmers = viewAdmin.findViewById(R.id.currentFarmersText) as TextView
+        textCurrentHunters = viewAdmin.findViewById(R.id.currentHuntersText) as TextView
+        textCurrentWoodCutters = viewAdmin.findViewById(R.id.currentWoodcuttersText) as TextView
+        textCurrentGuards = viewAdmin.findViewById(R.id.currentGuardsText) as TextView
+        textAvailableWorkers = viewAdmin.findViewById(R.id.availableColonistsText) as TextView
+        textGreensPerDay = viewAdmin.findViewById(R.id.textGreensPerDay) as TextView
+        textMeatPerDay = viewAdmin.findViewById(R.id.textMeatPerDay) as TextView
+        textWoodPerDay = viewAdmin.findViewById(R.id.textWoodPerDay) as TextView
+        textAvailableWorkers.text="Available workers: " + availableWorkers.toString()
+        btnDecreaseFarmers.setOnClickListener {
+            if(currentFarmers>0){
+                currentFarmers--
+                availableWorkers++
+                textCurrentFarmers.text=currentFarmers.toString()
+                textAvailableWorkers.text="Available workers: " + availableWorkers.toString()
+                textGreensPerDay.text=("Greens per day: " + currentFarmers*9).toString()
+                greensPerDay=currentFarmers*9
+            }
+        }
+        btnIncreaseFarmers.setOnClickListener {
+            if(availableWorkers>0){
+                currentFarmers++
+                availableWorkers--
+                textCurrentFarmers.text=currentFarmers.toString()
+                textAvailableWorkers.text="Available workers: " +availableWorkers.toString()
+                textGreensPerDay.text=("Greens per day: " +currentFarmers*9).toString()
+                greensPerDay=currentFarmers*9
+            }
+        }
+        btnDecreaseHunters.setOnClickListener {
+            if(currentHunters>0){
+                currentHunters--
+                availableWorkers++
+                textCurrentHunters.text=currentHunters.toString()
+                textAvailableWorkers.text="Available workers: " +availableWorkers.toString()
+                textMeatPerDay.text=("Meat per day: " +currentHunters*9).toString()
+                meatPerDay=currentHunters*9
+            }
+        }
+        btnIncreaseHunters.setOnClickListener {
+            if(availableWorkers>0){
+                currentHunters++
+                availableWorkers--
+                textCurrentHunters.text=currentHunters.toString()
+                textAvailableWorkers.text="Available workers: " +availableWorkers.toString()
+                textMeatPerDay.text=("Meat per day: " +currentHunters*9).toString()
+                meatPerDay=currentFarmers*9
+            }
+        }
+        btnDecreaseWoodCutters.setOnClickListener {
+            if(currentWoodCutters>0){
+                currentWoodCutters--
+                availableWorkers++
+                textCurrentWoodCutters.text=currentWoodCutters.toString()
+                textAvailableWorkers.text="Available workers: " +availableWorkers.toString()
+                textWoodPerDay.text=("Wood per day: " +currentWoodCutters*50).toString()
+                woodPerDay=currentWoodCutters*50
+            }
+        }
+        btnIncreaseWoodCutters.setOnClickListener {
+            if(availableWorkers>0){
+                currentWoodCutters++
+                availableWorkers--
+                textCurrentWoodCutters.text=currentWoodCutters.toString()
+                textAvailableWorkers.text="Available workers: " +availableWorkers.toString()
+                textWoodPerDay.text=("Wood per day: " +currentWoodCutters*50).toString()
+                woodPerDay=currentWoodCutters*50
+            }
+        }
+        btnDecreaseGuards.setOnClickListener {
+            if(currentGuards>0){
+                currentGuards--
+                availableWorkers++
+                textCurrentGuards.text=currentGuards.toString()
+                textAvailableWorkers.text="Available workers: " +availableWorkers.toString()
+            }
+        }
+        btnIncreaseGuards.setOnClickListener {
+            if(availableWorkers>0){
+                currentGuards++
+                availableWorkers--
+                textCurrentGuards.text=currentGuards.toString()
+                textAvailableWorkers.text="Available workers: " +availableWorkers.toString()
+            }
+        }
 
         //Generate the world
         generator.init()
@@ -157,6 +276,9 @@ class GameFragment : Fragment() {
         btnTabMenuOverview.setOnClickListener {
             fragmentFrame.removeAllViews()
             fragmentFrame.addView(viewOverview)
+            (listNewsView.adapter as ArrayAdapter<String>).notifyDataSetChanged()
+            listNewsView.smoothScrollToPosition(0)
+
         }
         btnTabMenuStorage.setOnClickListener {
             fragmentFrame.removeAllViews()
@@ -181,6 +303,14 @@ class GameFragment : Fragment() {
 
 
         updateResourceTexts(root)
+
+        if(args.getString("difficulty").equals("easy")){
+            addColonists(5)
+        }else if(args.getString("difficulty").equals("normal")){
+            addColonists(3)
+        }else if(args.getString("difficulty").equals("hard")){
+            addColonists(2)
+        }
 
         //Start world tick
         val t = Timer()
@@ -207,6 +337,22 @@ class GameFragment : Fragment() {
         tick()
         return root
     }
+
+    fun addColonists(nbrOfColonists : Int){
+        var x = 0
+        var colonistName = ""
+
+        while(x<nbrOfColonists){
+            var colonist = Colonist()
+            colonistList.add(colonist)
+            postNews("New colonist: " + colonist.getName())
+            x++
+        }
+        (listViewColonists.adapter as ArrayAdapter<ColonistListAdapter>).notifyDataSetChanged()
+        availableWorkers+=nbrOfColonists
+        textAvailableWorkers.text="Available workers: " +availableWorkers.toString()
+    }
+
     fun updateResourceTexts(rootview: View){
         (rootview.findViewById(R.id.woodAmountText) as TextView).text=(inventory.getAmountOfItem("Wood")).toString()
         (rootview.findViewById(R.id.greensAmountText) as TextView).text=(inventory.getAmountOfItem("Greens")).toString()
@@ -228,6 +374,13 @@ class GameFragment : Fragment() {
     fun tick(){
         if(currentMinutes==59){
             currentMinutes=0
+            inventory.addTo(listOf(Item("Greens",greensPerDay), Item("Meat", meatPerDay), Item("Wood", woodPerDay)))
+
+            activity.runOnUiThread({
+                updateResourceTexts(gameView)
+            })
+
+
             if(currentHour==23){
                 currentHour=0
                 if(((currentMonth==1||currentMonth==3||currentMonth==5||currentMonth==7||currentMonth==8||currentMonth==10||currentMonth==12)&&currentDay==31)||((currentMonth==4||currentMonth==6||currentMonth==9||currentMonth==11)&&currentDay==30)||((currentMonth==2)&&currentDay==28)){

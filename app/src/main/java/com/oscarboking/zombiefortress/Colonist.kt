@@ -20,7 +20,7 @@ class Colonist(){
     }
     fun getRandomName() : String{
 
-        if(Random().nextInt(1)==1){//male
+        if(Random().nextInt(2)==1){//male
             chosenNameList = maleNames
         }else{//female
             chosenNameList = femaleNames

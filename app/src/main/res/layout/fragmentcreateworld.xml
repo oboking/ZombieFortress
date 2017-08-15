@@ -17,12 +17,12 @@
     <EditText
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name"
         android:ems="10"
         android:id="@+id/editText"
         android:layout_width="350dp"
         android:layout_gravity="center_horizontal"
-        android:textColor="@android:color/background_light" />
+        android:textColor="@android:color/background_light"
+        android:hint="My first world" />
 
     <TextView
         android:text="Size"
@@ -56,7 +56,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/sizeMediumRadio"
                 android:layout_weight="1"
-                android:textColor="@android:color/background_light" />
+                android:textColor="@android:color/background_light"
+                android:checked="true" />
 
             <RadioButton
                 android:text="Large"
@@ -100,7 +101,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/difficultyNormalRadio"
             android:layout_weight="1"
-            android:textColor="@android:color/background_light" />
+            android:textColor="@android:color/background_light"
+            android:checked="true" />
 
         <RadioButton
             android:text="Hard"

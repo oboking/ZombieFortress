@@ -48,7 +48,9 @@ class Inventory(gameFrag : GameFragment, difficulty : String){
         var listString : String = ""
 
         for(item in itemList){
-            listString += item.getName() + " x" + item.getQuantity() + ". "
+            if(item.getQuantity()>0) {
+                listString += item.getName() + " x" + item.getQuantity() + ". "
+            }
         }
         return  listString
     }

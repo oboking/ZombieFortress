@@ -58,16 +58,16 @@
                 android:paddingTop="5dp">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/arrow_down_float"
-                    android:id="@+id/imageButton"
+                    android:src="@android:drawable/arrow_down_float"
+                    android:id="@+id/btnDecreaseFarmers"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical|center_horizontal"
-                    android:background="#0000" />
+                    android:background="#0000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
 
                 <TextView
-                    android:text="10"
+                    android:text="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/currentFarmersText"
@@ -79,8 +79,8 @@
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/arrow_up_float"
-                    android:id="@+id/imageButton2"
+                    android:src="@android:drawable/arrow_up_float"
+                    android:id="@+id/btnIncreaseFarmers"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:background="#0000" />
@@ -91,7 +91,7 @@
                 android:text="Greens per day: 0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView16"
+                android:id="@+id/textGreensPerDay"
                 android:layout_weight="1"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@android:color/background_light" />
@@ -133,14 +133,14 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/arrow_down_float"
-                    android:id="@+id/imageButton"
+                    android:src="@android:drawable/arrow_down_float"
+                    android:id="@+id/btnDecreaseHunters"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:background="#0000" />
 
                 <TextView
-                    android:text="10"
+                    android:text="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/currentHuntersText"
@@ -152,8 +152,8 @@
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/arrow_up_float"
-                    android:id="@+id/imageButton2"
+                    android:src="@android:drawable/arrow_up_float"
+                    android:id="@+id/btnIncreaseHunters"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:background="#0000" />
@@ -164,7 +164,7 @@
                 android:text="Meat per day: 0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/meatPerDayText"
+                android:id="@+id/textMeatPerDay"
                 android:layout_weight="1"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@android:color/background_light" />
@@ -204,14 +204,14 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/arrow_down_float"
-                    android:id="@+id/imageButton"
+                    android:src="@android:drawable/arrow_down_float"
+                    android:id="@+id/btnDecreaseWoodCutters"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:background="#0000" />
 
                 <TextView
-                    android:text="10"
+                    android:text="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/currentWoodcuttersText"
@@ -223,8 +223,8 @@
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/arrow_up_float"
-                    android:id="@+id/imageButton2"
+                    android:src="@android:drawable/arrow_up_float"
+                    android:id="@+id/btnIncreaseWoodCutters"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:background="#0000" />
@@ -235,7 +235,7 @@
                 android:text="Wood per day: 0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView16"
+                android:id="@+id/textWoodPerDay"
                 android:layout_weight="1"
                 android:layout_gravity="center_horizontal"
                 android:textColor="@android:color/background_light" />
@@ -273,14 +273,14 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/arrow_down_float"
-                    android:id="@+id/imageButton"
+                    android:src="@android:drawable/arrow_down_float"
+                    android:id="@+id/btnDecreaseGuards"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:background="#0000" />
 
                 <TextView
-                    android:text="10"
+                    android:text="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/currentGuardsText"
@@ -292,8 +292,8 @@
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/arrow_up_float"
-                    android:id="@+id/imageButton2"
+                    android:src="@android:drawable/arrow_up_float"
+                    android:id="@+id/btnIncreaseGuards"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:background="#0000" />
@@ -316,8 +316,8 @@
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="80dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="5dp">
 
         <LinearLayout
@@ -326,7 +326,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:text="Guards"
+                android:text="More?"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView19"
@@ -352,14 +352,14 @@
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/arrow_down_float"
+                    android:src="@android:drawable/arrow_down_float"
                     android:id="@+id/imageButton"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:background="#0000" />
 
                 <TextView
-                    android:text="10"
+                    android:text="0"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/currentGuardsText"
@@ -371,7 +371,7 @@
                 <ImageButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@android:drawable/arrow_up_float"
+                    android:src="@android:drawable/arrow_up_float"
                     android:id="@+id/imageButton2"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical|center_horizontal"

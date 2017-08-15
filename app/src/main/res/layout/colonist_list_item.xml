@@ -10,26 +10,30 @@
         android:layout_height="wrap_content"
         android:id="@+id/colonistNameView"
         tools:text="Name"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:textColor="#ffff" />
 
     <TextView
         android:text="Currently doing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/colonistCurrentlyDoing"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textColor="#ffff" />
 
     <TextView
         android:text="Items"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/colonistItemsView"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textColor="#ffff" />
 
     <TextView
         android:text="ayylmao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView11"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textColor="#ffff" />
 </LinearLayout>
