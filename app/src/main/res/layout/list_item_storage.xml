@@ -8,13 +8,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/storageItemNameView"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:textColor="@android:color/background_light" />
 
     <TextView
         android:text="Currently doing"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/storageItemQuantityView"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:textColor="@android:color/background_light" />
 
 </LinearLayout>

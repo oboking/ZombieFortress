@@ -48,6 +48,12 @@ class MapView @JvmOverloads constructor(
                             paint.setColor(Color.rgb(0, 0, 255))
                         }else if (mapTiles!![i][j].type.equals("land")) {
                             paint.setColor(Color.rgb(100, 100, 100))
+                        }else if (mapTiles!![i][j].type.equals("infected")) {
+                            paint.setColor(Color.rgb(255, 0, 0))
+                        }else if (mapTiles!![i][j].type.equals("colony")) {
+                            paint.setColor(Color.rgb(0, 255, 255))
+                        }else if (mapTiles!![i][j].type.equals("home")) {
+                            paint.setColor(Color.rgb(255, 128, 0))
                         }
                         /*if(worldMap!![i][j]==1){
                         paint.setColor(Color.rgb(0, 102, 0))

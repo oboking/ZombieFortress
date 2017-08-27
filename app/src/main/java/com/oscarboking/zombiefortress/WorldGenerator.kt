@@ -73,7 +73,8 @@ class WorldGenerator(val size: Int, val context: Activity) : Serializable{
     }
 
     fun randomizeBiomes(){
-        var z : Int = 0
+
+        /*var z : Int = 0
         var x : Int = 0
         var y : Int = 0
         while (z<=20){
@@ -98,7 +99,7 @@ class WorldGenerator(val size: Int, val context: Activity) : Serializable{
             }
 
             z++
-        }
+        }*/
 
         //now spread biomes
         //ta en snapshot av hur mapen ser ut, gp inom O(n) och vid de som har en typ förutom land, sätt de runtom till samma typ

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <TextView
+        android:text="People at the gates!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialogIntakeTitleText"
+        android:textColor="@android:color/background_light"
+        android:textSize="18sp"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/dialogIntakeBodyText"
+        android:layout_margin="15dp"
+        android:textColor="@android:color/background_light" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp">
+        <Button
+            android:text="Ignore them"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dialogIntakeNegative"
+            android:layout_marginRight="50dp" />
+        <Button
+            android:text="Let them in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dialogIntakeButtonPositive"/>
+    </LinearLayout>
+
+</LinearLayout>

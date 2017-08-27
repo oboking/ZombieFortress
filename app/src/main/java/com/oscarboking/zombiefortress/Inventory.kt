@@ -23,15 +23,30 @@ class Inventory(gameFrag : GameFragment, difficulty : String){
     }
 
     fun addTo(itemsToAdd : List<Item>){
+        var added : Boolean = false;
         for (item in itemsToAdd){
             for(itemInPossession in list){
                 if(itemInPossession.getName().equals(item.getName())){ //already in inventory
                     itemInPossession.increaseQuantity(item.getQuantity())
+                    added=true
                 }
             }
-            list.add(item)
+            if(item.getQuantity()>0&&!added) {
+                list.add(item)
+            }
+            added=false
         }
-        gameFrag.postNews("New items: " + getItemListString(itemsToAdd))
+    }
+
+    fun decreaseQuantityofItem(item:String,quantity:Int){
+        for(currentItem in list){
+            if(currentItem.getName().equals(item)){
+                currentItem.decreaseQuantity(quantity)
+                if(currentItem.getQuantity()<=0){
+                    list.remove(currentItem)
+                }
+            }
+        }
     }
 
     fun getAmountOfItem(itemName : String) : Int {

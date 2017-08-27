@@ -1,12 +1,13 @@
 package com.oscarboking.zombiefortress
 
+import java.io.Serializable
 import java.util.*
 import kotlin.collections.ArrayList
 
 /**
  * Created by boking on 2017-08-15.
  */
-class Colonist(){
+class Colonist : Serializable{
     private var name : String
     private var maleNames : ArrayList<String>
     private var femaleNames : ArrayList<String>
@@ -33,5 +34,8 @@ class Colonist(){
     }
     fun getCurrentJob() : String{
         return currentJob
+    }
+    fun setJob(assignment : String){
+        currentJob=assignment
     }
 }

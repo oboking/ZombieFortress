@@ -1,9 +1,11 @@
 package com.oscarboking.zombiefortress
 
+import java.io.Serializable
+
 /**
  * Created by boking on 2017-08-15.
  */
-class Item(name:String,quantity:Int) {
+class Item(name:String,quantity:Int) :Serializable{
     private var name : String
     private var quantity : Int
     init {
@@ -22,5 +24,7 @@ class Item(name:String,quantity:Int) {
     }
     fun decreaseQuantity(amount : Int){
         quantity-=amount
+        if(quantity<0)
+            quantity=0
     }
 }

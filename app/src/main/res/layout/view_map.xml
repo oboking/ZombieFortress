@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:text="Type: Forest"
+            android:layout_height="wrap_content"
+            android:id="@+id/mapViewTypeText"
+            android:layout_width="120dp"
+            android:textColor="@android:color/background_light" />
+
+        <TextView
+            android:text="TextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mapViewPosText"
+            android:textColor="@android:color/background_light" />
+
+        <Button
+            android:text="Scout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mapViewScoutButton"
+            android:layout_marginTop="20dp"
+            android:visibility="gone" />
+
+        <Button
+            android:text="Attack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/mapViewAttackButton"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <com.oscarboking.zombiefortress.MapView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center"
+        android:id="@+id/viewMapView"
+        android:background="#343343" />
+
+</LinearLayout>

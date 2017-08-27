@@ -8,7 +8,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp">
 
         <TextView
             android:text="Available colonists: 0"
@@ -18,7 +19,6 @@
             android:textColor="@android:color/background_light"
             android:textSize="15sp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp"
             android:layout_weight="1" />
     </LinearLayout>
 
@@ -63,8 +63,8 @@
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical|center_horizontal"
                     android:background="#0000"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="30dp"
+                    android:layout_width="30dp" />
 
                 <TextView
                     android:text="0"
@@ -77,8 +77,8 @@
                     android:layout_gravity="center_vertical|center_horizontal" />
 
                 <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@android:drawable/arrow_up_float"
                     android:id="@+id/btnIncreaseFarmers"
                     android:layout_weight="1"
@@ -131,8 +131,8 @@
                 android:paddingTop="5dp">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@android:drawable/arrow_down_float"
                     android:id="@+id/btnDecreaseHunters"
                     android:layout_weight="1"
@@ -150,8 +150,8 @@
                     android:layout_gravity="center_vertical|center_horizontal" />
 
                 <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@android:drawable/arrow_up_float"
                     android:id="@+id/btnIncreaseHunters"
                     android:layout_weight="1"
@@ -178,7 +178,7 @@
             android:layout_marginEnd="20dp">
 
             <TextView
-                android:text="Woodchoppers"
+                android:text="Wood cutters"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView17"
@@ -202,8 +202,8 @@
                 android:paddingTop="5dp">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@android:drawable/arrow_down_float"
                     android:id="@+id/btnDecreaseWoodCutters"
                     android:layout_weight="1"
@@ -221,8 +221,8 @@
                     android:layout_gravity="center_vertical|center_horizontal" />
 
                 <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@android:drawable/arrow_up_float"
                     android:id="@+id/btnIncreaseWoodCutters"
                     android:layout_weight="1"
@@ -271,8 +271,8 @@
                 android:paddingTop="5dp">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@android:drawable/arrow_down_float"
                     android:id="@+id/btnDecreaseGuards"
                     android:layout_weight="1"
@@ -290,8 +290,8 @@
                     android:layout_gravity="center_vertical|center_horizontal" />
 
                 <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@android:drawable/arrow_up_float"
                     android:id="@+id/btnIncreaseGuards"
                     android:layout_weight="1"
@@ -326,7 +326,7 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:text="More?"
+                android:text="Water boilers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView19"
@@ -335,7 +335,7 @@
                 android:layout_marginBottom="5dp" />
 
             <ImageView
-                android:src="@drawable/guard"
+                android:src="@drawable/waterboiler"
                 android:id="@+id/imageView6"
                 android:layout_gravity="center_horizontal"
                 android:background="#0000"
@@ -350,8 +350,8 @@
                 android:paddingTop="5dp">
 
                 <ImageButton
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@android:drawable/arrow_down_float"
                     android:id="@+id/imageButton"
                     android:layout_weight="1"
@@ -369,8 +369,8 @@
                     android:layout_gravity="center_vertical|center_horizontal" />
 
                 <ImageButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@android:drawable/arrow_up_float"
                     android:id="@+id/imageButton2"
                     android:layout_weight="1"
@@ -380,7 +380,7 @@
             </LinearLayout>
 
             <TextView
-                android:text="Extra defence: 0"
+                android:text="Water per day: 0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView20"
